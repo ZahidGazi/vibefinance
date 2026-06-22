@@ -330,48 +330,73 @@ function DashboardApp() {
           <section className="rounded-xl border border-[#E0DEF4] bg-white mb-4">
             <div className="px-4 py-3 border-b border-[#E0DEF4] text-sm font-medium">Add subscription</div>
             <form onSubmit={onSubmit} className="p-4 grid md:grid-cols-2 gap-3">
-              <input
-                className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
-                placeholder="Service name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              <input
-                className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
-                type="number"
-                step="0.01"
-                placeholder="Cost"
-                value={cost}
-                onChange={(e) => setCost(e.target.value)}
-                required
-              />
-              <select
-                className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
-                value={billingCycle}
-                onChange={(e) => setBillingCycle(e.target.value as BillingCycle)}
-              >
-                <option value="MONTHLY">Monthly</option>
-                <option value="YEARLY">Yearly</option>
-              </select>
-              <select
-                className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
-                value={category}
-                onChange={(e) => setCategory(e.target.value as SubscriptionCategory)}
-              >
-                <option value="STREAMING">Streaming</option>
-                <option value="SAAS">SaaS</option>
-                <option value="PRODUCTIVITY">Productivity</option>
-                <option value="OTHER">Other</option>
-              </select>
-              <input
-                className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
-                type="date"
-                value={renewalDate}
-                onChange={(e) => setRenewalDate(e.target.value)}
-                required
-              />
-              <button className="rounded-lg bg-[#534AB7] hover:bg-[#3C3489] text-white py-2 text-sm font-medium">
+              <div className="flex flex-col gap-1">
+                <label htmlFor="serviceName" className="text-xs text-[#5F5E5A]">Service name</label>
+                <input
+                  id="serviceName"
+                  className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
+                  placeholder="Service name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label htmlFor="serviceCost" className="text-xs text-[#5F5E5A]">Cost</label>
+                <input
+                  id="serviceCost"
+                  className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
+                  type="number"
+                  step="0.01"
+                  placeholder="Cost"
+                  value={cost}
+                  onChange={(e) => setCost(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label htmlFor="billingCycle" className="text-xs text-[#5F5E5A]">Billing cycle</label>
+                <select
+                  id="billingCycle"
+                  className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
+                  value={billingCycle}
+                  onChange={(e) => setBillingCycle(e.target.value as BillingCycle)}
+                >
+                  <option value="MONTHLY">Monthly</option>
+                  <option value="YEARLY">Yearly</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label htmlFor="category" className="text-xs text-[#5F5E5A]">Category</label>
+                <select
+                  id="category"
+                  className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value as SubscriptionCategory)}
+                >
+                  <option value="STREAMING">Streaming</option>
+                  <option value="SAAS">SaaS</option>
+                  <option value="PRODUCTIVITY">Productivity</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label htmlFor="renewalDate" className="text-xs text-[#5F5E5A]">Next renewal date</label>
+                <input
+                  id="renewalDate"
+                  className="border border-[#D3D1C7] rounded-lg px-3 py-2 text-sm"
+                  type="date"
+                  value={renewalDate}
+                  onChange={(e) => setRenewalDate(e.target.value)}
+                  required
+                />
+              </div>
+
+              <button className="rounded-lg bg-[#534AB7] hover:bg-[#3C3489] text-white py-2 text-sm font-medium self-end">
                 Save subscription
               </button>
             </form>
