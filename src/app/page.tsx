@@ -283,27 +283,39 @@ function DashboardApp() {
   return (
     <div className="min-h-screen bg-[#F8F7FC] text-[#26215C] p-4 md:p-6">
       <div className="mx-auto max-w-7xl rounded-2xl overflow-hidden border border-[#E0DEF4] bg-white min-h-[85vh] flex">
-        <aside className="w-[74px] hover:w-[220px] transition-all duration-200 border-r border-[#E0DEF4] px-2 py-4 group hidden md:flex flex-col">
-          <div className="flex items-center gap-2 px-2 mb-6">
-            <div className="w-8 h-8 rounded-lg bg-[#534AB7] text-white grid place-items-center font-bold">$</div>
-            <span className="opacity-0 group-hover:opacity-100 transition text-sm font-medium whitespace-nowrap">VibeFinance</span>
+        <aside className="w-16 hover:w-56 transition-all duration-200 border-r border-[#E0DEF4] py-4 group hidden md:flex flex-col overflow-hidden">
+          <div className="flex items-center gap-3 px-3 mb-6 min-w-[224px]">
+            <div className="w-8 h-8 rounded-lg bg-[#534AB7] text-white grid place-items-center font-bold shrink-0">$</div>
+            <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sm font-medium whitespace-nowrap">
+              VibeFinance
+            </span>
           </div>
+
           {["Dashboard", "Subscriptions", "Cash flow", "Renewals"].map((item, idx) => (
             <div
               key={item}
-              className={`rounded-lg px-3 py-2 mb-2 text-sm ${
-                idx === 0 ? "bg-[#EEEDFE] text-[#3C3489]" : "text-[#5F5E5A]"
+              className={`mx-2 rounded-lg px-3 py-2 mb-2 text-sm flex items-center gap-3 min-w-[224px] ${
+                idx === 0 ? "bg-[#EEEDFE] text-[#3C3489]" : "text-[#5F5E5A] hover:bg-[#F8F7FC]"
               }`}
             >
-              <span className="opacity-0 group-hover:opacity-100 transition whitespace-nowrap">{item}</span>
+              <span className="w-5 h-5 shrink-0 rounded grid place-items-center text-xs font-semibold">
+                {item.charAt(0)}
+              </span>
+              <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all whitespace-nowrap">
+                {item}
+              </span>
             </div>
           ))}
+
           <div className="mt-auto px-2">
             <button
               onClick={() => signOut()}
-              className="w-full rounded-lg px-3 py-2 text-left text-sm text-[#5F5E5A] hover:bg-[#F8F7FC]"
+              className="w-full rounded-lg px-3 py-2 text-left text-sm text-[#5F5E5A] hover:bg-[#F8F7FC] flex items-center gap-3 min-w-[224px]"
             >
-              <span className="opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Sign out</span>
+              <span className="w-5 h-5 shrink-0 rounded grid place-items-center text-xs font-semibold">⎋</span>
+              <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all whitespace-nowrap">
+                Sign out
+              </span>
             </button>
           </div>
         </aside>
